@@ -1,0 +1,337 @@
+```css
+/* =========================
+   DASAR WEBSITE
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #eee9df;
+    color: #292929;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* =========================
+   HEADER BUKU
+========================= */
+
+.header-buku {
+    background: linear-gradient(135deg, #102a1f, #2d6a4f);
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.header-buku h1 {
+    margin: 15px 0 10px;
+    font-size: 34px;
+}
+
+.header-buku p {
+    font-size: 17px;
+    opacity: 0.9;
+}
+
+
+/* TOMBOL KEMBALI */
+
+.kembali {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+
+    border: 1px solid rgba(255,255,255,0.5);
+    padding: 10px 18px;
+    border-radius: 8px;
+
+    font-family: Arial, sans-serif;
+
+    transition: 0.3s;
+}
+
+.kembali:hover {
+    background: white;
+    color: #1b4332;
+}
+
+
+/* =========================
+   HALAMAN ISI BUKU
+========================= */
+
+.isi-buku {
+    width: 90%;
+    max-width: 850px;
+
+    margin: 40px auto;
+
+    background: #fffdf8;
+
+    padding: 55px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.12);
+}
+
+
+/* =========================
+   JUDUL BAB
+========================= */
+
+.isi-buku h2 {
+    color: #1b4332;
+
+    text-align: center;
+
+    font-size: 28px;
+
+    margin-top: 40px;
+    margin-bottom: 30px;
+
+    position: relative;
+}
+
+.isi-buku h2::after {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+    height: 3px;
+
+    background: #c49a5a;
+
+    margin: 12px auto;
+}
+
+
+/* SUB JUDUL */
+
+.isi-buku h3 {
+    color: #2d6a4f;
+
+    font-size: 22px;
+
+    margin-top: 35px;
+}
+
+
+/* =========================
+   PARAGRAF
+========================= */
+
+.isi-buku p {
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    text-align: justify;
+
+    margin-bottom: 20px;
+}
+
+
+/* HURUF PERTAMA PARAGRAF */
+
+.isi-buku article p:first-of-type::first-letter {
+    font-size: 45px;
+    font-weight: bold;
+    color: #1b4332;
+
+    float: left;
+
+    line-height: 35px;
+
+    padding-right: 7px;
+}
+
+
+/* =========================
+   KOTAK INFORMASI
+========================= */
+
+.info {
+    background: #edf6f0;
+
+    border-left: 5px solid #2d6a4f;
+
+    padding: 18px 20px;
+
+    margin: 30px 0;
+
+    border-radius: 6px;
+
+    font-family: Arial, sans-serif;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   KODE PROGRAM
+========================= */
+
+.kode {
+    background: #1d1f21;
+
+    color: #eeeeee;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    margin: 25px 0;
+
+    overflow-x: auto;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.kode pre {
+    margin: 0;
+
+    font-family: Consolas, monospace;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   GARIS PEMISAH
+========================= */
+
+.isi-buku hr {
+    border: none;
+
+    border-top: 1px solid #ddd4c5;
+
+    margin: 45px 0;
+}
+
+
+/* =========================
+   NAVIGASI HALAMAN
+========================= */
+
+.navigasi {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 50px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #ddd4c5;
+}
+
+
+.tombol {
+    display: inline-block;
+
+    background: #1b4332;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    font-family: Arial, sans-serif;
+
+    transition: 0.3s;
+}
+
+
+.tombol:hover {
+    background: #2d6a4f;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   COVER MINI
+========================= */
+
+.cover-mini {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.cover-mini img {
+    width: 170px;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.2);
+}
+
+
+/* =========================
+   TAMPILAN HP
+========================= */
+
+@media (max-width: 600px) {
+
+    .header-buku {
+        padding: 35px 15px;
+    }
+
+    .header-buku h1 {
+        font-size: 25px;
+    }
+
+    .isi-buku {
+        width: 94%;
+
+        padding: 28px 20px;
+
+        margin: 20px auto;
+    }
+
+    .isi-buku h2 {
+        font-size: 24px;
+    }
+
+    .isi-buku h3 {
+        font-size: 20px;
+    }
+
+    .isi-buku p {
+        font-size: 17px;
+
+        line-height: 1.8;
+    }
+
+    .kode {
+        padding: 15px;
+    }
+
+    .kode pre {
+        font-size: 13px;
+    }
+
+    .navigasi {
+        flex-direction: column;
+    }
+
+    .tombol {
+        text-align: center;
+    }
+}
+```

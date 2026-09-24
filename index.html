@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Perpustakaan Digital Komar</title>
+
+<style>
+
+/* =========================
+   DASAR
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #050505;
+    color: white;
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+#loginPage {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #3b3200,
+            #050505 60%
+        );
+}
+
+.loginBox {
+    width: 360px;
+    padding: 35px;
+
+    background: #151515;
+
+    border: 1px solid #333;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 40px rgba(255, 215, 0, 0.15);
+
+    text-align: center;
+}
+
+.loginBox h1 {
+    color: #ffd700;
+    margin-bottom: 25px;
+}
+
+.loginBox input {
+    width: 100%;
+
+    padding: 13px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #444;
+
+    border-radius: 8px;
+
+    background: #090909;
+
+    color: white;
+
+    outline: none;
+}
+
+.loginBox button {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #ffd700;
+
+    color: #111;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.loginBox button:hover {
+    background: #fff000;
+}
+
+#loginMessage {
+    margin-top: 15px;
+    color: #ff5555;
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+#dashboardPage {
+    display: none;
+    min-height: 100vh;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 30px;
+
+    background: #10100c;
+
+    border-bottom: 1px solid #292929;
+}
+
+.logo {
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #ffd700;
+}
+
+.logout {
+    padding: 10px 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #ff4444;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* DASHBOARD */
+
+.dashboard {
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 40px 20px;
+}
+
+.welcome {
+    margin-bottom: 30px;
+}
+
+.welcome h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.welcome span {
+    color: #ffd700;
+}
+
+.welcome p {
+    color: #aaa;
+}
+
+
+/* MENU */
+
+.menu {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+}
+
+.menuCard {
+    padding: 25px;
+
+    background: #151515;
+
+    border: 1px solid #292929;
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.menuCard:hover {
+    transform: translateY(-3px);
+
+    border-color: #ffd700;
+}
+
+.menuCard h2 {
+    color: #ffd700;
+
+    margin-bottom: 10px;
+}
+
+.menuCard p {
+    color: #aaa;
+}
+
+
+/* =========================
+   PERPUSTAKAAN
+========================= */
+
+.library {
+    padding: 25px;
+
+    background: #111;
+
+    border-radius: 20px;
+
+    border: 1px solid #292929;
+}
+
+.library h2 {
+    color: #ffd700;
+
+    margin-bottom: 20px;
+}
+
+
+/* SEARCH */
+
+.search {
+    width: 100%;
+
+    padding: 15px;
+
+    margin-bottom: 20px;
+
+    border-radius: 10px;
+
+    border: 1px solid #444;
+
+    background: #080808;
+
+    color: white;
+
+    outline: none;
+}
+
+
+/* =========================
+   KARTU BUKU
+========================= */
+
+.book {
+    background: #1c1c19;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    border-radius: 12px;
+
+    border: 1px solid #292929;
+}
+
+.book h3 {
+    color: white;
+
+    margin-bottom: 8px;
+}
+
+.book p {
+    color: #aaa;
+
+    margin-bottom: 12px;
+}
+
+.detailButton {
+    padding: 9px 15px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #ffd700;
+
+    color: #111;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.detailButton:hover {
+    background: #fff000;
+}
+
+
+/* =========================
+   HALAMAN DETAIL
+========================= */
+
+#detailBuku {
+    display: none;
+}
+
+.bookDetail {
+    background: #151515;
+
+    border: 1px solid #333;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    margin-top: 20px;
+}
+
+.backButton {
+    padding: 10px 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #444;
+
+    color: white;
+
+    cursor: pointer;
+
+    margin-bottom: 25px;
+}
+
+.backButton:hover {
+    background: #555;
+}
+
+.bookDetail h1 {
+    color: #ffd700;
+
+    margin-bottom: 15px;
+}
+
+.bookInfo {
+    color: #aaa;
+
+    margin-bottom: 25px;
+}
+
+.bookContent {
+    line-height: 1.8;
+
+    color: #ddd;
+
+    white-space: pre-line;
+}
+
+.bookContent h2 {
+    color: #ffd700;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 15px;
+    }
+
+    .dashboard {
+        padding: 25px 15px;
+    }
+
+    .welcome h1 {
+        font-size: 25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     LOGIN
+================================================== -->
+
+<div id="loginPage">
+
+    <div class="loginBox">
+
+        <h1>📚 PERPUSTAKAAN DIGITAL STMIK PAMITRAN</h1>
+        <h1 style="color: white; font-size: 20px; font-arial: Arial;">
+    Silahkan Masuk Dengan Akun Anda
+</h1>
+        <input
+            type="text"
+            id="username"
+            placeholder="Username"
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+        >
+
+        <button onclick="login()">
+            Masuk
+        </button>
+
+        <p id="loginMessage"></p>
+
+        <br>
+        
+        </small>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     DASHBOARD
+================================================== -->
+
+<div id="dashboardPage">
+
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            📚 Perpustakaan Komar
+        </div>
+
+        <button
+            class="logout"
+            onclick="logout()"
+        >
+            Keluar
+        </button>
+
+    </div>
+
+
+
+    <!-- DASHBOARD -->
+
+    <div class="dashboard">
+
+
+        <div class="welcome">
+
+            <h1>
+                Selamat Datang,
+                <span id="namaUser">
+                    Komarudin
+                </span>
+                👋
+            </h1>
+
+            <p>
+                Selamat datang di Perpustakaan Digital.
+            </p>
+
+        </div>
+
+
+
+        <!-- MENU -->
+
+        <div class="menu">
+
+            <div
+                class="menuCard"
+                onclick="fokusCariBuku()"
+            >
+
+                <h2>
+                    🔎 Cari Buku
+                </h2>
+
+                <p>
+                    Cari buku berdasarkan
+                    judul atau penulis.
+                </p>
+
+            </div>
+
+
+            <div
+                class="menuCard"
+                onclick="tampilkanSemuaBuku()"
+            >
+
+                <h2>
+                    📚 Daftar Buku
+                </h2>
+
+                <p>
+                    Lihat semua buku
+                    yang tersedia.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             HALAMAN DAFTAR BUKU
+        ================================================== -->
+
+        <div
+            class="library"
+            id="halamanPerpustakaan"
+        >
+
+            <h2>
+                📚 Daftar Buku
+            </h2>
+
+
+            <input
+                class="search"
+                id="searchBuku"
+                type="text"
+                placeholder="🔎 Cari judul atau penulis..."
+                oninput="cariBuku()"
+            >
+
+
+            <div id="daftarBuku"></div>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             HALAMAN DETAIL BUKU
+        ================================================== -->
+
+        <div id="detailBuku">
+
+            <div class="bookDetail">
+
+                <button
+                    class="backButton"
+                    onclick="kembaliKeDaftar()"
+                >
+                    ← Kembali ke Daftar Buku
+                </button>
+
+
+                <h1 id="detailJudul">
+                    Judul Buku
+                </h1>
+
+
+                <div class="bookInfo">
+
+                    <p>
+                        <b>Penulis:</b>
+                        <span id="detailPenulis"></span>
+                    </p>
+
+                    <p>
+                        <b>Tahun:</b>
+                        <span id="detailTahun"></span>
+                    </p>
+
+                    <p>
+                        <b>Kategori:</b>
+                        <span id="detailKategori"></span>
+                    </p>
+
+                </div>
+
+
+                <div class="bookContent">
+
+                    <h2>
+                        📖 Isi Buku
+                    </h2>
+
+                    <p id="detailIsi"></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+
+
+/* ==================================================
+   DATA LOGIN
+================================================== */
+
+const USERNAME_BENAR = "komarudin";
+
+const PASSWORD_BENAR = "123456";
+
+
+
+/* ==================================================
+   DATA BUKU
+==================================================
+
+   EDIT BUKU DI BAGIAN INI
+================================================== */
+
+const daftarBuku = [
+
+    {
+        id: 1,
+
+        judul: "Belajar HTML",
+
+        penulis: "Komarudin",
+
+        tahun: "2026",
+
+        kategori: "Pemrograman Web",
+
+        isi: `
+HTML adalah bahasa markup yang digunakan
+untuk membuat struktur sebuah halaman website.
+
+Materi yang dapat dipelajari:
+
+1. Struktur HTML
+2. Heading
+3. Paragraf
+4. Link
+5. Gambar
+6. Tabel
+7. Form
+8. Button
+
+Contoh struktur HTML:
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Website Saya</title>
+</head>
+
+<body>
+
+<h1>Hello World</h1>
+
+<p>Ini website pertama saya.</p>
+
+</body>
+
+</html>
+`
+    },
+
+
+    {
+        id: 2,
+
+        judul: "Belajar CSS",
+
+        penulis: "Komarudin",
+
+        tahun: "2026",
+
+        kategori: "Pemrograman Web",
+
+        isi: `
+CSS digunakan untuk mengatur tampilan
+sebuah halaman website.
+
+Dengan CSS kita dapat mengatur:
+
+1. Warna
+2. Ukuran tulisan
+3. Background
+4. Jarak
+5. Border
+6. Tombol
+7. Layout website
+
+Contoh:
+
+body {
+    background: black;
+    color: white;
+}
+
+CSS membuat website menjadi
+lebih menarik dan mudah digunakan.
+`
+    },
+
+
+    {
+        id: 3,
+
+        judul: "Belajar JavaScript",
+
+        penulis: "Komarudin",
+
+        tahun: "2026",
+
+        kategori: "Pemrograman",
+
+        isi: `
+JavaScript digunakan untuk membuat
+website menjadi interaktif.
+
+Contohnya:
+
+- Tombol
+- Login
+- Pencarian
+- Kalkulator
+- Game
+- Validasi form
+
+Contoh JavaScript:
+
+function halo() {
+
+    alert("Halo Komar!");
+
+}
+
+JavaScript dapat bekerja bersama
+HTML dan CSS.
+`
+    },
+
+
+    {
+        id: 4,
+
+        judul: "Pemrograman C++",
+
+        penulis: "Komarudin",
+
+        tahun: "2026",
+
+        kategori: "Pemrograman",
+
+        isi: `
+C++ merupakan bahasa pemrograman
+yang banyak digunakan untuk belajar
+logika pemrograman.
+
+Materi dasar:
+
+1. Variabel
+2. Tipe data
+3. Operator
+4. Percabangan
+5. Perulangan
+6. Array
+7. Function
+
+Contoh:
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    cout << "Hello World";
+
+    return 0;
+}
+`
+    },
+
+
+    {
+        id: 5,
+
+        judul: "Pemrograman Python",
+
+        penulis: "Komarudin",
+
+        tahun: "2026",
+
+        kategori: "Pemrograman",
+
+        isi: `
+Python merupakan bahasa pemrograman
+yang memiliki sintaks sederhana.
+
+Python dapat digunakan untuk:
+
+1. Aplikasi
+2. Website
+3. Data
+4. AI
+5. Otomatisasi
+
+Contoh:
+
+print("Hello World")
+
+Kode tersebut akan menampilkan
+tulisan Hello World.
+`
+    },
+
+
+    {
+        id: 6,
+
+        judul: "Sistem Informasi",
+
+        penulis: "Komarudin",
+
+        tahun: "2026",
+
+        kategori: "Sistem Informasi",
+
+        isi: `
+Sistem informasi merupakan sistem
+yang digunakan untuk mengumpulkan,
+mengolah, menyimpan dan menyajikan
+informasi.
+
+Komponen sistem informasi antara lain:
+
+1. Manusia
+2. Hardware
+3. Software
+4. Data
+5. Prosedur
+6. Jaringan
+`
+    },
+
+
+    {
+        id: 7,
+
+        judul: "Algoritma dan Pemrograman",
+
+        penulis: "Komarudin",
+
+        tahun: "2026",
+
+        kategori: "Algoritma",
+
+        isi: `
+Algoritma adalah langkah-langkah
+terstruktur untuk menyelesaikan
+sebuah masalah.
+
+Algoritma dapat ditulis menggunakan:
+
+1. Flowchart
+2. Pseudocode
+3. Bahasa pemrograman
+
+Contoh sederhana:
+
+Mulai
+↓
+Masukkan angka
+↓
+Hitung angka
+↓
+Tampilkan hasil
+↓
+Selesai
+`
+    },
+
+
+    {
+        id: 8,
+
+        judul: "Basis Data",
+
+        penulis: "Komarudin",
+
+        tahun: "2026",
+
+        kategori: "Database",
+
+        isi: `
+Basis data digunakan untuk menyimpan
+dan mengelola data.
+
+Contoh sistem database:
+
+1. MySQL
+2. PostgreSQL
+3. SQLite
+
+Istilah dasar:
+
+Table
+Field
+Record
+Primary Key
+Foreign Key
+`
+    },
+
+
+    {
+        id: 9,
+
+        judul: "Jaringan Komputer",
+
+        penulis: "Komarudin",
+
+        tahun: "2026",
+
+        kategori: "Jaringan",
+
+        isi: `
+Jaringan komputer merupakan hubungan
+antara beberapa perangkat komputer
+agar dapat saling berkomunikasi.
+
+Jenis jaringan:
+
+1. LAN
+2. MAN
+3. WAN
+
+Perangkat jaringan:
+
+Router
+Switch
+Access Point
+Modem
+`
+    },
+
+
+    {
+        id: 10,
+
+        judul: "Sistem Operasi",
+
+        penulis: "Komarudin",
+
+        tahun: "2026",
+
+        kategori: "Sistem Operasi",
+
+        isi: `
+Sistem operasi adalah software yang
+mengatur perangkat keras dan software
+pada komputer.
+
+Contoh sistem operasi:
+
+1. Windows
+2. Linux
+3. Android
+4. macOS
+
+Fungsi sistem operasi antara lain:
+
+- Mengatur file
+- Mengatur memori
+- Mengatur perangkat
+- Menjalankan aplikasi
+`
+    }
+
+];
+
+
+
+/* ==================================================
+   LOGIN
+================================================== */
+
+function login() {
+
+    const username =
+        document.getElementById("username").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+
+    const message =
+        document.getElementById("loginMessage");
+
+
+    if (
+        username === USERNAME_BENAR &&
+        password === PASSWORD_BENAR
+    ) {
+
+        localStorage.setItem(
+            "sudahLogin",
+            "true"
+        );
+
+        localStorage.setItem(
+            "namaUser",
+            username
+        );
+
+
+        bukaDashboard();
+
+    }
+
+    else {
+
+        message.textContent =
+            "❌ Username atau password salah!";
+
+    }
+
+}
+
+
+
+/* ==================================================
+   BUKA DASHBOARD
+================================================== */
+
+function bukaDashboard() {
+
+    document.getElementById(
+        "loginPage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "dashboardPage"
+    ).style.display = "block";
+
+
+    const nama =
+        localStorage.getItem("namaUser")
+        || "Komarudin";
+
+
+    document.getElementById(
+        "namaUser"
+    ).textContent = nama;
+
+
+    tampilkanBuku();
+
+}
+
+
+
+/* ==================================================
+   LOGOUT
+================================================== */
+
+function logout() {
+
+    localStorage.removeItem(
+        "sudahLogin"
+    );
+
+    localStorage.removeItem(
+        "namaUser"
+    );
+
+
+    document.getElementById(
+        "dashboardPage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "loginPage"
+    ).style.display = "flex";
+
+}
+
+
+
+/* ==================================================
+   TAMPILKAN DAFTAR BUKU
+================================================== */
+
+function tampilkanBuku(data = daftarBuku) {
+
+    const daftar =
+        document.getElementById("daftarBuku");
+
+
+    daftar.innerHTML = "";
+
+
+    if (data.length === 0) {
+
+        daftar.innerHTML = `
+            <div class="book">
+                <h3>📚 Buku tidak ditemukan</h3>
+                <p>
+                    Coba gunakan kata pencarian lain.
+                </p>
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    data.forEach(function(buku) {
+
+        daftar.innerHTML += `
+
+            <div class="book">
+
+                <h3>
+                    📖 ${buku.judul}
+                </h3>
+
+                <p>
+                    Penulis: ${buku.penulis}
+                </p>
+
+                <button
+                    class="detailButton"
+                    onclick="bukaDetailBuku(${buku.id})"
+                >
+                    📖 Lihat Detail
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+
+/* ==================================================
+   CARI BUKU
+================================================== */
+
+function cariBuku() {
+
+    const keyword =
+        document
+        .getElementById("searchBuku")
+        .value
+        .toLowerCase();
+
+
+    const hasil =
+        daftarBuku.filter(function(buku) {
+
+            return (
+
+                buku.judul
+                    .toLowerCase()
+                    .includes(keyword)
+
+                ||
+
+                buku.penulis
+                    .toLowerCase()
+                    .includes(keyword)
+
+            );
+
+        });
+
+
+    tampilkanBuku(hasil);
+
+}
+
+
+
+/* ==================================================
+   LIHAT DETAIL BUKU
+================================================== */
+
+function bukaDetailBuku(id) {
+
+    const buku =
+        daftarBuku.find(function(item) {
+
+            return item.id === id;
+
+        });
+
+
+    if (!buku) {
+
+        alert("Buku tidak ditemukan!");
+
+        return;
+
+    }
+
+
+    /* sembunyikan daftar */
+
+    document.getElementById(
+        "halamanPerpustakaan"
+    ).style.display = "none";
+
+
+    /* tampilkan detail */
+
+    document.getElementById(
+        "detailBuku"
+    ).style.display = "block";
+
+
+    /* masukkan data buku */
+
+    document.getElementById(
+        "detailJudul"
+    ).textContent = buku.judul;
+
+
+    document.getElementById(
+        "detailPenulis"
+    ).textContent = buku.penulis;
+
+
+    document.getElementById(
+        "detailTahun"
+    ).textContent = buku.tahun;
+
+
+    document.getElementById(
+        "detailKategori"
+    ).textContent = buku.kategori;
+
+
+    document.getElementById(
+        "detailIsi"
+    ).textContent = buku.isi;
+
+}
+
+
+
+/* ==================================================
+   KEMBALI KE DAFTAR
+================================================== */
+
+function kembaliKeDaftar() {
+
+    document.getElementById(
+        "detailBuku"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "halamanPerpustakaan"
+    ).style.display = "block";
+
+}
+
+
+
+/* ==================================================
+   FOKUS PENCARIAN
+================================================== */
+
+function fokusCariBuku() {
+
+    document.getElementById(
+        "searchBuku"
+    ).focus();
+
+}
+
+
+
+/* ==================================================
+   TAMPILKAN SEMUA
+================================================== */
+
+function tampilkanSemuaBuku() {
+
+    document.getElementById(
+        "searchBuku"
+    ).value = "";
+
+
+    tampilkanBuku();
+
+}
+
+
+
+/* ==================================================
+   CEK LOGIN SAAT WEBSITE DIBUKA
+================================================== */
+
+window.onload = function() {
+
+    const sudahLogin =
+        localStorage.getItem("sudahLogin");
+
+
+    if (sudahLogin === "true") {
+
+        bukaDashboard();
+
+    }
+
+};
+
+
+</script>
+
+</body>
+
+</html>

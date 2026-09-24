@@ -1,0 +1,316 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Belajar HTML - Buku Digital</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: #eee8dc;
+            color: #333;
+        }
+
+        /* BAGIAN ATAS */
+        header {
+            background: linear-gradient(135deg, #12372a, #2d6a4f);
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* TOMBOL KEMBALI */
+        .kembali {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 18px;
+            background: white;
+            color: #1b4332;
+            text-decoration: none;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        /* KERTAS BUKU */
+        .buku {
+            max-width: 850px;
+            margin: 35px auto;
+            background: #fffdf7;
+            padding: 55px;
+            border-radius: 8px;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        /* JUDUL BAB */
+        .buku h2 {
+            text-align: center;
+            color: #1b4332;
+            margin-bottom: 35px;
+        }
+
+        .buku h3 {
+            color: #2d6a4f;
+            margin-top: 35px;
+        }
+
+        /* ISI PARAGRAF */
+        .buku p {
+            font-size: 18px;
+            line-height: 1.9;
+            text-align: justify;
+        }
+
+        /* KOTAK INFORMASI */
+        .info {
+            background: #e9f5ee;
+            border-left: 5px solid #2d6a4f;
+            padding: 15px 20px;
+            margin: 25px 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* KODE PROGRAM */
+        .kode {
+            background: #202124;
+            color: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+            line-height: 1.6;
+        }
+
+        /* GARIS */
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 40px 0;
+        }
+
+        /* NAVIGASI */
+        .navigasi {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 45px;
+        }
+
+        .tombol {
+            background: #1b4332;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+        }
+
+        .tombol:hover {
+            background: #2d6a4f;
+        }
+
+        /* TAMPILAN HP */
+        @media (max-width: 600px) {
+
+            .buku {
+                margin: 15px;
+                padding: 25px;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+
+            .buku p {
+                font-size: 17px;
+                line-height: 1.8;
+            }
+
+            .navigasi {
+                gap: 10px;
+            }
+
+            .tombol {
+                padding: 10px 14px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <h1>📖 Belajar Pemrograman HTML</h1>
+
+        <p>
+            Buku Digital untuk Pemula
+        </p>
+
+        <!-- GANTI LINK INI DENGAN HALAMAN UTAMA KAMU -->
+        <a href="index.html" class="kembali">
+            ← Kembali ke Perpustakaan
+        </a>
+
+    </header>
+
+
+    <!-- ISI BUKU -->
+    <main class="buku">
+
+        <h2>BAB 1</h2>
+
+        <h3>Pengenalan HTML</h3>
+
+        <p>
+            HTML adalah bahasa markup yang digunakan untuk
+            membuat struktur sebuah halaman website.
+            Dengan HTML kita dapat membuat judul, paragraf,
+            gambar, tombol, tabel, link, dan berbagai elemen
+            lainnya.
+        </p>
+
+        <div class="info">
+
+            <strong>💡 Catatan:</strong>
+
+            HTML digunakan untuk membuat struktur halaman.
+            Tampilan website biasanya diperindah menggunakan
+            CSS.
+
+        </div>
+
+
+        <h3>Apa itu HTML?</h3>
+
+        <p>
+            HTML merupakan singkatan dari
+            <strong>HyperText Markup Language</strong>.
+            HTML bukan bahasa pemrograman seperti C++ atau
+            Python, melainkan bahasa markup untuk menyusun
+            struktur halaman web.
+        </p>
+
+
+        <hr>
+
+
+        <h2>BAB 2</h2>
+
+        <h3>Membuat Judul</h3>
+
+        <p>
+            Untuk membuat judul dalam HTML kita dapat
+            menggunakan tag h1 sampai h6.
+        </p>
+
+
+        <div class="kode">
+
+<pre>
+&lt;h1&gt;Judul Utama&lt;/h1&gt;
+
+&lt;h2&gt;Sub Judul&lt;/h2&gt;
+
+&lt;h3&gt;Judul Kecil&lt;/h3&gt;
+</pre>
+
+        </div>
+
+
+        <h3>Membuat Paragraf</h3>
+
+        <p>
+            Paragraf dibuat menggunakan tag
+            <strong>&lt;p&gt;</strong>.
+            Tag tersebut digunakan untuk menampilkan
+            tulisan dalam bentuk paragraf.
+        </p>
+
+
+        <div class="kode">
+
+<pre>
+&lt;p&gt;
+Saya sedang belajar membuat website
+menggunakan HTML.
+&lt;/p&gt;
+</pre>
+
+        </div>
+
+
+        <hr>
+
+
+        <h2>BAB 3</h2>
+
+        <h3>Membuat Link</h3>
+
+        <p>
+            Link digunakan untuk menghubungkan halaman
+            website satu dengan halaman lainnya.
+        </p>
+
+
+        <div class="kode">
+
+<pre>
+&lt;a href="halaman2.html"&gt;
+    Buka Halaman 2
+&lt;/a&gt;
+</pre>
+
+        </div>
+
+
+        <div class="info">
+
+            <strong>🚀 Tips Belajar:</strong>
+
+            Jangan hanya membaca kode. Cobalah mengubah
+            tulisan, warna, ukuran, dan isi kode kemudian
+            lihat hasilnya di browser.
+
+        </div>
+
+
+        <!-- NAVIGASI BUKU -->
+        <div class="navigasi">
+
+            <a href="index.html" class="tombol">
+                ← Kembali
+            </a>
+
+            <a href="#" class="tombol">
+                Bab Berikutnya →
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
+```
